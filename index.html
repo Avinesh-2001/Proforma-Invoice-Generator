@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Generator</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="./index.js"></script>
+</head>
+
+<body>
+    <div>
+        <div class="appname">
+            <h1>Invoice Generator</h1>
+            <div class="form-container">
+                <!-- Company Details Section -->
+                <div class="form-section">
+                    <h2>Company Details</h2>
+                    <form action="">
+                        <div>
+                            <label>Company Name :</label>
+                            <input type="text" name="companyname" />
+                        </div>
+                        <div>
+                            <label>Company Address :</label>
+                            <input type="text" name="companyaddress" />
+                        </div>
+                        <div>
+                            <label>Phone Number :</label>
+                            <input type="text" name="customermobile" />
+                        </div>
+                        <div>
+                            <label>Email Id:</label>
+                            <input type="text" name="customeremailid" />
+                        </div>
+                        <div>
+                            <label>Customer Name :</label>
+                            <input type="text" name="customername" />
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Shipping Details -->
+                <div class="form-section">
+                    <h2>Shipping Details</h2>
+                    <form action="">
+                        <div>
+                            <label>P.I.No :</label>
+                            <input type="number" name="pino" />
+                        </div>
+                        <div>
+                            <label>Date :</label>
+                            <input type="date" name="date" />
+                        </div>
+                        <div>
+                            <label>Mode/Terms of Payment :</label>
+                            <input type="text" name="paymentmode" />
+                        </div>
+                        <div>
+                            <label>Dispatch Through :</label>
+                            <input type="text" name="disptachthrough" />
+                        </div>
+                        <div>
+                            <label>Delivery Time :</label>
+                            <input type="text" name="deliverytime" />
+                        </div>
+                        <div>
+                            <label>Destination :</label>
+                            <input type="text" name="destination" />
+                        </div>
+                        <div>
+                            <label>Vechicle no. :</label>
+                            <input type="text" name="vehicleno" />
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Product Details Section -->
+                <div class="form-section">
+                    <h2>Product Details</h2>
+                    <form action="">
+                        <div>
+                            <label>Product Code :</label>
+                            <input type="text" name="productCode" />
+                        </div>
+                        <div>
+                            <label>Product Name :</label>
+                            <input type="text" name="productName" />
+                        </div>
+                        <div>
+                            <label>HSN Code :</label>
+                            <input type="number" name="HSNcode" />
+                        </div>
+                        <div>
+                            <label>Quantity :</label>
+                            <input type="number" name="quantity" />
+                        </div>
+                        <div>
+                            <label>Per:</label>
+                            <select name="per">
+                                <option value="select">Select</option>
+                                <option value="set">Set</option>
+                                <option value="pcs">Pcs</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>Price :</label>
+                            <input type="number" name="price" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <button id="addProduct">Add Product</button>
+            <button id="deleteProduct">Delete Product</button>
+        </div>
+        <hr>
+
+        <!-- Proforma Invoice Pdf -->
+        <div id="invoice-container">
+            <div class="proforma">
+                <div class="proforma-content" style="margin-top: 20px;">
+                    <h1 class="bwi">Bajaj Wellmed International</h1>
+                    <div class="address">
+                        <h3>Plot No. H 392, RIICO INDUSTRIAL AREA Khushkhera,Khairthal Tijara -301707</h3>
+                        <h3>Phone : +91-9811561415/7568138415</h3>
+                        <h3>Email-id : bew.ak1976@gmail.com , bwiak1976@gmail.com</h3>
+                        <h3>GSTIN/UN : 08AUNPA3370N1ZB</h3>
+                    </div>
+                </div>
+                <img src="./logo.png" alt="My Image" />
+            </div>
+            <h1 class="invoice-heading">PROFORMA INVOICE</h1>
+            <div class="invoice-container1">
+                <table border="1">
+                    <tr>
+                        <td>
+                            <p style="font-weight: bolder; font-size: 1.7em;" id="companyNameDisplay"></p>
+                            <p id="companyAddressDisplay"></p>
+                            <p id="customerMobileDisplay"></p>
+                            <p id="customerEmailDisplay"></p>
+                            <br>
+                            <p style="font-weight: bolder;">Kind Attn : MR. <span id="customerNameDisplay"></span></p>
+                        </td>
+                        <td>
+                            <p class="p1"><strong> P.I No. : <span id="pinoDisplay"></span> </strong></p>
+                            <p class="p2"><strong> Date : <span id="dateDisplay"></span> </strong></p>
+                            <p class="p4"><strong>Dispatch Through :</strong><span id="dispatchThroughDisplay"></span>
+                            </p>
+                            <p class="p5"><strong>Delivery Time :</strong><span id="deliveryTimeDisplay"></span></p>
+                            <p class="p6"><strong>Mode/Terms of Payment :</strong><span id="paymentModeDisplay"></span>
+                            </p>
+                            <p class="p7"><strong>Destination :</strong><span id="destinationDisplay"></span></p>
+                            <p class="p8"><strong> Motor Vehicle No. :</strong><span id="vehicleNoDisplay"></span></p>
+                        </td>
+                    </tr>
+                </table>
+                <table class="invoice-table">
+                    <thead>
+                        <tr>
+                            <th class="th1" style="border: 1px solid black;">Sr. No.</th>
+                            <th class="th2" style="border: 1px solid black;">Product Code</th>
+                            <th class="th3" style="border: 1px solid black;">Product Name</th>
+                            <th class="th4" style="border: 1px solid black;">HSN Code</th>
+                            <th class="th5" style="border: 1px solid black;">Quantity</th>
+                            <th class="th6" style="border: 1px solid black;">Per</th>
+                            <th class="th7" style="border: 1px solid black;">Price</th>
+                            <th class="th8" style="border: 1px solid black;">Total Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productTableBody">
+                        <!-- Product rows will be dynamically added here -->
+                    </tbody>
+                </table>
+                <table border="1">
+                    <tr style="height: 10px;">
+                        <td class="totalamount">
+                            <p1>Total</p1>
+                        </td>
+                        <td style="vertical-align: middle; text-align: center;">
+                            <p style="height: 6px; margin: 10px; display: flex; align-items: center; justify-content: center;"
+                                id="totalAmountDisplay"></p>
+                        </td>
+                    </tr>
+                </table>
+                <table border="1">
+                    <tr>
+                        <td>
+                            <h3>Terms Condition</h3>
+                            <h5>1.Freight extra as applicable</h5>
+                            <h4>Please deposit the payment in </h4>
+                            <p style="font-size: 1.6em;">Bank Name : State Bank Of India</p>
+                            <p style="font-size: 1.6em;"> A/C No. : 38769536412 </p>
+                            <p style="font-size: 1.6em;"> Branch & IFSC Code : SBIN0032266</p>
+                        </td>
+                        <td>
+                            <h3 style="text-align: end; margin-top: 20px; margin-right: 30px;">
+                                <span>C.G.S.T @ 9% <span style="margin-left: 150px;" id="cgstDisplay"></span></span>
+                            </h3>
+                            <h3 style="text-align: end; margin-right: 30px;">
+                                <span>I.G.S.T @ 9% <span style="margin-left: 150px;" id="igstDisplay"></span></span>
+                            </h3>
+                            <h3 style="text-align: end; margin-right: 30px; margin-top: 30px;">
+                                <span>Total Value<span style="margin-left: 155px; margin-right: -10px;"
+                                        id="totalValueDisplay"></span></span>
+                            </h3>
+                            <h4 style="font-size: 1.2em;" class="end">for Bajaj Wellmed International</h4>
+                            <h4 class="end" style="font-size: 1.2em; margin: 10px 10px 30px 0;">Signature</h4>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <button class="button2" id="downloadPDF">Download PDF</button>
+    </div>
+    
+</body>
+
+</html>

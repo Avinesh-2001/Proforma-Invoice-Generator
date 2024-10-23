@@ -1,0 +1,340 @@
+body {
+    font-family: "Times New Roman", Times, serif;
+  }
+  
+  .appname {
+    max-width: 1200px;
+    margin: 15px auto;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .appname h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 22px;
+  }
+  
+  .appname h2 {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #2c3e50;
+    border-bottom: 1px solid #3498db;
+    padding-bottom: 5px;
+  }
+  
+  .form-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .form-section {
+    width: 32%;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .appname form div {
+    margin-bottom: 8px;
+  }
+  
+  .appname label {
+    display: block;
+    margin-bottom: 2px;
+    font-weight: bold;
+    font-size: 12px;
+    color: #34495e;
+  }
+  
+  .appname input[type="text"],
+  .appname input[type="number"],
+  .appname input[type="date"],
+  .appname select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    font-size: 15px;
+    background-color: #ecf0f1;
+  }
+  
+  .appname input:focus,
+  .appname select:focus {
+    border-color: #3498db;
+    outline: none;
+  }
+  
+  button {
+    width: 40%;
+    padding: 10px;
+    margin-left: 70px;
+    background-color: #3498db;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #2980b9;
+  }
+  
+  .button2 {
+    width: 50%;
+    padding: 10px;
+    margin: 30px 0 50px 30%;
+    background-color: #3498db;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .proforma {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px;
+  }
+  
+  .proforma-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .bwi {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    margin: 10px 30px 40px -5px;
+    padding-left: 50px;
+    font-size: 3em;
+  }
+  
+  .address {
+    margin-top: 4px;
+    margin-left: 25px;
+  }
+  
+  .address h3 {
+    margin: 0 5px 5px 0;
+    padding: 0px 10px 0 25px;
+  }
+  
+  img {
+    margin-left: 23%;
+    margin-top: 100px;
+  }
+  
+  .invoice-heading {
+    text-align: center;
+  }
+  
+  @media (max-width: 992px) {
+    .form-container {
+      flex-direction: column;
+    }
+  
+    .form-section {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+  
+    img {
+      margin-left: 0;
+      margin-top: 50px;
+    }
+  
+    .button2 {
+      margin-left: 0;
+      width: 100%;
+    }
+  
+    button {
+      width: 100%;
+      margin-left: 0;
+    }
+  
+    .bwi {
+      font-size: 2.5em;
+      padding-left: 0;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .bwi {
+      font-size: 2em;
+    }
+  
+    .address h3 {
+      font-size: 1.2em;
+    }
+  
+    button, .button2 {
+      padding: 8px;
+      font-size: 12px;
+    }
+  }
+  body {
+    font-family: "Times New Roman", Times, serif;
+  }
+  
+  .invoice-container1 {
+    font-family: 'Times New Roman';
+    margin: 10px 80px 0 80px;
+  }
+  
+  .invoice-heading {
+    font-size: 2.5em;
+    margin-top: 20px;
+    margin-bottom: -5px;
+    text-align: center;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  td {
+    width: 50%;
+    vertical-align: top;
+    border: 1px solid black;
+    padding: 5px;
+  }
+  
+  td p {
+    margin: 5px 0;
+    padding: 0 5px;
+    text-align: justify;
+    font-size: 1.2em;
+  }
+  
+  /* Specific styles for the second column */
+  .p1, .p2, .p3, .p4, .p5, .p6 {
+    display: inline-block;
+    width: 45%;
+    margin: 5px 0 0 0 ;
+    padding: 0 5px;
+    vertical-align: top;
+  }
+  
+  .p7, .p8 {
+    width: 100%;
+    margin: 5px 0 0 0;
+    padding: 0 5px;
+    text-align: justify;
+    display: inline-block;
+    vertical-align: top;
+  }
+  
+  .invoice-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .invoice-table th {
+    font-size: 1.3em;
+    padding: 10px;
+  }
+  
+  .th1 { width: 4%; text-align: center; }
+  .th2 { width: 15%; text-align: center; }
+  .th3 { width: 45%; text-align: center; font-weight: bold; }
+  .th4, .th5, .th7 { width: 6%; text-align: center; }
+  .th6 { width: 8%; text-align: center; }
+  .th8 { width: 10%; text-align: center; }
+
+
+  
+
+  
+  table tr td h3 {
+    margin-top: 7px;
+    font-size: 1.5em;
+  }
+  
+  table tr td h5 {
+    margin: -10px 0 0 5px;
+    font-weight: normal;
+    font-size: 1.3em;
+  }
+  
+  table tr td h4 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+  }
+  
+  .totalamount {
+    width: 90.1%;
+    vertical-align: middle;
+    padding: 0 25px 0 0;
+    text-align: end;
+    font-weight: bold;
+    font-size: 1.5em;
+  }
+  
+  .end {
+    text-align: end;
+    margin: 50px 10px 0 0;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 992px) {
+    .invoice-container1 {
+      margin: 10px 20px;
+    }
+  
+    td, .p1, .p2, .p3, .p4, .p5, .p6 {
+      width: 100%;
+    }
+  
+    table tr td h3, table tr td h4, table tr td h5, .totalamount {
+      font-size: 1.2em;
+    }
+  
+    .totalamount {
+      width: 100%;
+      padding-right: 10px;
+    }
+  
+    .invoice-heading {
+      font-size: 2em;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .invoice-container1 {
+      margin: 10px;
+    }
+  
+    td, .p7, .p8 {
+      font-size: 1em;
+    }
+  
+    .invoice-heading {
+      font-size: 1.8em;
+    }
+  
+    .totalamount {
+      font-size: 1.3em;
+      padding-right: 0;
+    }
+  
+    table tr td h3, table tr td h4, table tr td h5 {
+      font-size: 1.1em;
+    }
+  }
+  
